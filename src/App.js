@@ -24,6 +24,8 @@ function App() {
     setUsers(searchInUsers(e.target.value, users));
   };
 
+
+
   const deleteUser = (id) => {
     let tempUsers = users.filter((user) => user.id !== id);
     setUsers(tempUsers);
@@ -89,6 +91,8 @@ function App() {
         onChange={searchUsers}
       ></input>
       <UsersList
+        page={page}
+        setPage={setPage}
         selectAll={selectAll}
         selectAllRef = {selectAllRef}
         selectOne={selectOne}
