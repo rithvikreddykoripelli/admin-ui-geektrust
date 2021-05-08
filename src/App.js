@@ -84,7 +84,7 @@ function App() {
       <input
         className="search"
         type="text"
-        placeholder="Search by name,email or role"
+        placeholder="Search by name, email or role"
         onChange={searchUsers}
       ></input>
       <UsersList
