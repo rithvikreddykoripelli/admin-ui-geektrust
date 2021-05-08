@@ -13,12 +13,15 @@ const User = (props) => {
   return (
     <tr key={user.id} className={user.selected? styles.selected:""}>
       <td>
+        <label for={`check-${user.id}`}>
         <input
+          id={`check-${user.id}`}
           type="checkbox"
           data={`${user.selected}`}
           onChange={() => selectOne(user.id)}
           checked={user.selected}
         ></input>
+        </label>
       </td>
       <td>
         <input

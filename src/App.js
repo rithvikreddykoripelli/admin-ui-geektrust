@@ -74,8 +74,10 @@ function App() {
   };
 
   const deleteSelected = () => {
+    if(window.confirm("Selected users will be deleted")){
     setUsers((prevState) => prevState.filter((user) => !user.selected));
     selectAllRef.current.checked = false;
+    }
   };
 
   const index = getRecordIndex(page);

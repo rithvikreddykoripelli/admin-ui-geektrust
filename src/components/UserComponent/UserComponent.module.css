@@ -20,3 +20,8 @@
 .selected input {
     background: hsl(0, 0%, 90%);
 }
+
+label {
+    display: inline-block;
+    width: 100%;    
+}
