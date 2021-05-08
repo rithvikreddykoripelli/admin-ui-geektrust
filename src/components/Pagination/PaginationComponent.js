@@ -51,7 +51,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-1}
-      className={`${styles.page}`}
+      className={`${styles.page} ${page === totalPages? styles.disabled:""}`}
       onClick={() => navigatePage(page + 1)}
     >
       <i className="fas fa-angle-right"></i>
@@ -60,7 +60,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={0}
-      className={`${styles.page}`}
+      className={`${styles.page} ${page === totalPages? styles.disabled:""}`}
       onClick={() => changePage(totalPages)}
     >
       <i className="fas fa-angle-double-right"></i>
