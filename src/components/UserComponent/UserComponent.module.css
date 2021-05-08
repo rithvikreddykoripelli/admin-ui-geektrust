@@ -12,3 +12,11 @@
     width: 90%;
     text-overflow: ellipsis;
 }
+
+.selected {
+    background: hsl(0, 0%, 90%);
+}
+
+.selected input {
+    background: hsl(0, 0%, 90%);
+}

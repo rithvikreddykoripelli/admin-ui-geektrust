@@ -11,7 +11,7 @@ const User = (props) => {
   const roleRef = useRef(null);
 
   return (
-    <tr key={user.id}>
+    <tr key={user.id} className={user.selected? styles.selected:""}>
       <td>
         <input
           type="checkbox"
