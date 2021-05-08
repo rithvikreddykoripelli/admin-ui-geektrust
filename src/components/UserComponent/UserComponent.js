@@ -1,8 +1,10 @@
-import styles from "./UserComponent.module.css";
 import { useRef } from "react";
+import PropTypes from "prop-types";
+
+import styles from "./UserComponent.module.css";
 
 const User = (props) => {
-  const { user, deleteUser, editUser, saveUser,selectOne } = props;
+  const { user, deleteUser, editUser, saveUser, selectOne } = props;
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -11,7 +13,12 @@ const User = (props) => {
   return (
     <tr key={user.id}>
       <td>
-        <input type="checkbox" data={`${user.selected}`} onChange={()=>selectOne(user.id)} checked={user.selected}></input>
+        <input
+          type="checkbox"
+          data={`${user.selected}`}
+          onChange={() => selectOne(user.id)}
+          checked={user.selected}
+        ></input>
       </td>
       <td>
         <input
@@ -57,7 +64,14 @@ const User = (props) => {
       </td>
     </tr>
   );
+};
 
+User.propTypes = {
+  user:PropTypes.object,
+  deleteUser:PropTypes.func,
+  editUser:PropTypes.func,
+  saveUser:PropTypes.func,
+  selectOne:PropTypes.func,
 };
 
 export default User;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import "./App.css";
 import Pagination from "./components/Pagination/PaginationComponent";
@@ -10,7 +10,6 @@ import { searchInUsers } from "./utilities/SearchUtility";
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState("");
   const [update, setUpdate] = useState(false);
   const [page, setPage] = useState(1);
   const selectAllRef = useRef(null);
@@ -19,12 +18,9 @@ function App() {
   }, []);
 
   const searchUsers = (e) => {
-    setSearch(e.target.value);
     setPage(1);
     setUsers(searchInUsers(e.target.value, users));
   };
-
-
 
   const deleteUser = (id) => {
     let tempUsers = users.filter((user) => user.id !== id);
@@ -51,21 +47,22 @@ function App() {
     setUpdate((prevState) => !prevState);
   };
 
-  const selectOne = (id)=> {
+  const selectOne = (id) => {
     let tempUsers = users;
     const index = tempUsers.findIndex((user) => user.id === id);
     tempUsers[index].selected = !tempUsers[index].selected;
     setUsers(tempUsers);
     setUpdate((prevState) => !prevState);
-  }
+  };
 
   const selectAll = (e) => {
     const listedUserIds = users
       .filter((user) => user.show)
-      .slice(index, index + config.PAGE_SIZE).map(user=>user.id);
+      .slice(index, index + config.PAGE_SIZE)
+      .map((user) => user.id);
 
-    let tempUsers = users.map(user=> {
-      if(listedUserIds.includes(user.id)){
+    let tempUsers = users.map((user) => {
+      if (listedUserIds.includes(user.id)) {
         user.selected = e.target.checked;
         return user;
       }
@@ -73,13 +70,13 @@ function App() {
     });
 
     setUsers(tempUsers);
-    setUpdate((prevState) => !prevState);
+    setUpdate(!update);
   };
 
-  const deleteSelected= ()=> {
-    setUsers(prevState => prevState.filter(user=>!user.selected))
+  const deleteSelected = () => {
+    setUsers((prevState) => prevState.filter((user) => !user.selected));
     selectAllRef.current.checked = false;
-  }
+  };
 
   const index = getRecordIndex(page);
   return (
@@ -94,7 +91,7 @@ function App() {
         page={page}
         setPage={setPage}
         selectAll={selectAll}
-        selectAllRef = {selectAllRef}
+        selectAllRef={selectAllRef}
         selectOne={selectOne}
         saveUser={saveUser}
         editUser={editUser}

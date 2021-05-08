@@ -1,4 +1,6 @@
 import { getTotalPages } from "../../utilities/PagingUtility";
+import PropTypes from "prop-types";
+
 import styles from "./PaginationComponent.module.css";
 
 const Pagination = (props) => {
@@ -51,7 +53,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-1}
-      className={`${styles.page} ${page === totalPages? styles.disabled:""}`}
+      className={`${styles.page} ${page === totalPages ? styles.disabled : ""}`}
       onClick={() => navigatePage(page + 1)}
     >
       <i className="fas fa-angle-right"></i>
@@ -60,7 +62,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={0}
-      className={`${styles.page} ${page === totalPages? styles.disabled:""}`}
+      className={`${styles.page} ${page === totalPages ? styles.disabled : ""}`}
       onClick={() => changePage(totalPages)}
     >
       <i className="fas fa-angle-double-right"></i>
@@ -75,6 +77,13 @@ const Pagination = (props) => {
       <div className={styles.pagination}>{pages}</div>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  usersLength: PropTypes.number,
+  setPage: PropTypes.func,
+  page: PropTypes.number,
+  deleteSelected: PropTypes.func,
 };
 
 export default Pagination;
