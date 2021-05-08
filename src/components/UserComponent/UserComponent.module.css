@@ -6,3 +6,9 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.readOnly {
+    border:none;
+    width: 90%;
+    text-overflow: ellipsis;
+}

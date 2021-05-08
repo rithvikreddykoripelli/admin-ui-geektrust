@@ -8,7 +8,7 @@ const UsersList = (props) => {
   const { users,deleteUser,editUser,saveUser } = props;
 
   let fillRows = [];
-  for(let i=users.length;i<config.PAGE_SIZE;i++){
+  for(let i=users.filter( user=>user.show).length;i<config.PAGE_SIZE;i++){
       fillRows.push(<tr key={i}></tr>)
   }
   return (
@@ -24,7 +24,7 @@ const UsersList = (props) => {
       </thead>
       <tbody>
         {users.map((user) => {
-          return <User saveUser={saveUser} editUser={editUser} deleteUser={deleteUser} key={user.id} user={user}></User>;
+          return user.show?<User saveUser={saveUser} editUser={editUser} deleteUser={deleteUser} key={user.id} user={user}></User>:"";
         })}
         {fillRows}
       </tbody>
