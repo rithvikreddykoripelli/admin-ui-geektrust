@@ -2,7 +2,7 @@ import styles from "./UserComponent.module.css";
 import { useRef } from "react";
 
 const User = (props) => {
-  const { user, deleteUser, editUser, saveUser } = props;
+  const { user, deleteUser, editUser, saveUser,selectOne } = props;
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -11,7 +11,7 @@ const User = (props) => {
   return (
     <tr key={user.id}>
       <td>
-        <input type="checkbox" defaultChecked={user.selected}></input>
+        <input type="checkbox" data={`${user.selected}`} onChange={()=>selectOne(user.id)} checked={user.selected}></input>
       </td>
       <td>
         <input

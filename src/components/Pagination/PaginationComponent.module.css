@@ -19,3 +19,24 @@
     background-color: #fff;
     color:black
 }
+
+.delete {
+    margin-right:auto;
+    margin-left: 10vw;
+    background: #fc5373;
+    color:white;
+    border-radius: 20px;
+    padding: 6px;
+    margin-top:5px;
+    
+}
+
+.paginationContainer {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.disabled {
+    background: gray;
+    cursor:not-allowed;
+}

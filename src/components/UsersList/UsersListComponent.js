@@ -5,7 +5,7 @@ import styles from "./UsersListComponent.module.css";
 
 const UsersList = (props) => {
 
-  const { users,deleteUser,editUser,saveUser } = props;
+  const { users,deleteUser,editUser,saveUser,selectAll,selectOne,selectAllRef } = props;
 
   let fillRows = [];
   for(let i=users.filter( user=>user.show).length;i<config.PAGE_SIZE;i++){
@@ -15,7 +15,7 @@ const UsersList = (props) => {
     <table className={styles.table}>
       <thead>
         <tr>
-          <th><input type="checkbox" name="selectAll"/></th>
+          <th><input type="checkbox" ref={selectAllRef}  onChange={(e)=>{selectAll(e)}} name="selectAll"/></th>
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
@@ -24,7 +24,7 @@ const UsersList = (props) => {
       </thead>
       <tbody>
         {users.map((user) => {
-          return user.show?<User saveUser={saveUser} editUser={editUser} deleteUser={deleteUser} key={user.id} user={user}></User>:"";
+          return user.show?<User selectOne={selectOne} saveUser={saveUser} editUser={editUser} deleteUser={deleteUser} key={user.id} user={user}></User>:"";
         })}
         {fillRows}
       </tbody>
