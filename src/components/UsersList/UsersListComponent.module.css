@@ -1,0 +1,29 @@
+.table {
+    width: 80vw;
+    margin:auto;
+    height: 80vh;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+
+
+.table tr {
+    border-bottom: 1px solid black;
+    text-align: left;
+    height: 8vh;
+}
+
+.table th{
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.table tbody {
+    font-weight: 100;
+}
+
+.table td {
+    padding: 5px 0 10px 0;
+}
+

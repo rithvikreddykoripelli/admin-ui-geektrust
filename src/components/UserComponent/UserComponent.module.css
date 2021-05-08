@@ -1,0 +1,8 @@
+.icons {
+    color: #6c6c6c;
+}
+
+.icons * {
+    padding: 10px;
+    cursor: pointer;
+}
