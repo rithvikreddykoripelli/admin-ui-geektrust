@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About
 This app is an interface for admins to see and delete users
+
+## Demo
+https://fervent-ptolemy-f6424e.netlify.app/
 ## Prerequisites
 You should have Node, Yarn installed
 
